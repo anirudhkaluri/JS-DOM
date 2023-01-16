@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <body>
+       
+        <h1 class="title">this is the first heading</h1>
+       
+        <p id="firstpara" onclick="handle2()" > hi this is anirudh</p>
+
+        <div id="book-list">
+            <h2 class="title" onclick="handle1()">Books to Read</h2>
+            <ul>
+                <li>Book1</li>
+                <li>Book2</li>
+                <li>Book3</li>
+            </ul>
+        </div>
+
+    </body>
+
+    <script>
+        function handle1(){
+            var titles=document.getElementsByClassName('title');
+            console.log(titles); //this will look like an array but it isnt. It is HTML Collections.
+            for(i=0;i<titles.length;i++){ //this is how we cycle through the html collections.
+                console.log(titles[i]);
+            }
+            if(Array.isArray(titles)==false){ //titles is not an array //it will output false in the console
+                console.log(Array.isArray(titles));
+                console.log(Array.isArray(Array.from(titles))); 
+                //Array.from(html_collection) creates an array from the HTML collection that is passed to it.
+                //forEach can only be used for arrays
+                //so first convert to array and then 
+                Array.from(titles).forEach(item=>{
+                    console.log("The item is:",item);
+                });
+            }
+            
+        }
+        function handle2(){
+            const fp=document.querySelector("#book-list");
+            console.log(fp);
+        }
+        
+    </script>
+</html>
